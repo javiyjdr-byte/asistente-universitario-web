@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organizá tu cursada, analizá materiales académicos y planificá actividades desde un portal privado.">
+  <meta name="theme-color" content="#4b27c5">
+  <title>Asistente Universitario</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#inicio" aria-label="Asistente Universitario, inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M8 12.5C13.5 10.2 18.7 10.8 24 15v25c-5.3-4.2-10.5-4.8-16-2.5v-25Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M40 12.5C34.5 10.2 29.3 10.8 24 15v25c5.3-4.2 10.5-4.8 16-2.5v-25Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M31 7v7M27.5 10.5h7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Asistente Universitario</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a class="nav-link" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#herramientas">Herramientas</a>
+        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+        <a class="nav-link" href="#privacidad">Privacidad</a>
+        <a class="nav-link" href="#ayuda">Ayuda</a>
+        <a class="button button-primary" data-site-link="portal" href="#">Ingresar al portal</a>
+      </nav>
+
+      <button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-nav" aria-label="Navegación móvil" hidden>
+      <div class="container mobile-nav-inner">
+        <a class="nav-link" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#herramientas">Herramientas</a>
+        <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+        <a class="nav-link" href="#privacidad">Privacidad</a>
+        <a class="nav-link" href="#ayuda">Ayuda</a>
+        <a class="button button-primary" data-site-link="portal" href="#">Ingresar al portal</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">✦ Tu espacio académico personal</span>
+          <h1>Tu cursada, tus materiales y tu planificación en un solo lugar</h1>
+          <p class="hero-copy">Organizá materias, analizá documentos, generá guías de estudio y llevá tus actividades a Google Calendar desde un entorno privado y personal.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" data-site-link="portal" href="#">Ingresar al portal <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#herramientas">Conocer las herramientas</a>
+          </div>
+          <p class="hero-note">Organización académica con foco en claridad, privacidad y autonomía.</p>
+          <span class="pilot-pill">Prueba piloto controlada</span>
+        </div>
+
+        <div aria-label="Vista ilustrativa del portal académico">
+          <div class="portal-preview">
+            <div class="preview-bar" aria-hidden="true"><span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span></div>
+            <div class="preview-body" aria-hidden="true">
+              <div class="preview-sidebar">
+                <div class="preview-logo"></div>
+                <div class="preview-line"></div><div class="preview-line short"></div><div class="preview-line"></div>
+              </div>
+              <div class="preview-main">
+                <div class="preview-title"></div>
+                <div class="preview-metrics"><div class="preview-metric"></div><div class="preview-metric"></div><div class="preview-metric"></div></div>
+                <div class="preview-card"><div class="preview-line"></div><div class="preview-line short"></div></div>
+                <div class="preview-card"><div class="preview-line"></div><div class="preview-line short"></div></div>
+              </div>
+            </div>
+            <div class="preview-floating top"><span class="preview-icon" aria-hidden="true">✓</span><span><strong>Guía lista</strong><small>Material procesado</small></span></div>
+            <div class="preview-floating bottom"><span class="preview-icon" aria-hidden="true">▦</span><span><strong>Calendario ordenado</strong><small>Próxima actividad</small></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="herramientas" class="section">
+      <div class="container">
+        <p class="section-kicker">Herramientas</p>
+        <h2 class="section-title">Todo lo que necesitás para ordenar tu estudio</h2>
+        <p class="section-lead">Funciones simples para acompañar cada etapa de tu cursada sin dispersar información entre distintas aplicaciones.</p>
+
+        <div class="tools-grid">
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">◫</span><h3>Mi cursada</h3><p>Organizá días, horarios, modalidad y fechas de cada materia.</p></article>
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">▤</span><h3>Biblioteca inteligente</h3><p>Guardá materiales privados y encontralos por materia o tema.</p></article>
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">✦</span><h3>Guías con IA</h3><p>Transformá tus PDF en resúmenes, temas, actividades y preguntas de estudio.</p></article>
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">✓</span><h3>Actividades</h3><p>Registrá parciales, trabajos y otras entregas desde el mismo portal.</p></article>
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">▦</span><h3>Google Calendar</h3><p>Prepará y agregá planes de estudio evitando eventos duplicados.</p></article>
+          <article class="tool-card"><span class="tool-icon" aria-hidden="true">⇩</span><h3>Descargas</h3><p>Conservá tus guías en PDF o texto para estudiar dentro y fuera de línea.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section how">
+      <div class="container">
+        <p class="section-kicker">Cómo funciona</p>
+        <h2 class="section-title">Un camino claro, desde tu material hasta tu planificación</h2>
+        <p class="section-lead">Ingresá al portal privado y avanzá a tu ritmo con una experiencia pensada para la vida universitaria.</p>
+        <ol class="steps">
+          <li class="step"><span class="step-number">1</span><p>Ingresá con tu cuenta de Google.</p></li>
+          <li class="step"><span class="step-number">2</span><p>Creá u organizá tus materias.</p></li>
+          <li class="step"><span class="step-number">3</span><p>Cargá un material PDF.</p></li>
+          <li class="step"><span class="step-number">4</span><p>Recibí una guía de estudio estructurada.</p></li>
+          <li class="step"><span class="step-number">5</span><p>Planificá actividades y eventos.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="privacidad" class="section">
+      <div class="container privacy-panel">
+        <div class="privacy-visual" aria-hidden="true"><span class="shield">♢</span></div>
+        <div class="privacy-copy">
+          <p class="section-kicker">Privacidad</p>
+          <h2>Tus materiales no son públicos</h2>
+          <p>Cada participante accede únicamente a la información asociada con su cuenta. Los archivos se almacenan en infraestructura privada administrada por el Asistente Universitario y se procesan para generar las herramientas académicas solicitadas.</p>
+          <p>Las guías creadas con inteligencia artificial pueden contener errores. Revisalas junto con el material oficial y las indicaciones de tu cátedra.</p>
+          <a class="button button-secondary" data-site-link="privacy" href="./privacidad.html">Leer aviso de privacidad <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pilot" aria-labelledby="pilot-title">
+      <div class="container pilot-row">
+        <div>
+          <h2 id="pilot-title">En prueba piloto con estudiantes</h2>
+          <p>La experiencia de los participantes se utiliza para mejorar la claridad, accesibilidad y utilidad del servicio. Podés comunicar problemas o sugerencias directamente al equipo.</p>
+        </div>
+        <a class="button button-secondary" data-site-link="feedback" href="#">Enviar comentarios</a>
+      </div>
+    </section>
+
+    <section id="ayuda" class="section">
+      <div class="container faq-wrap">
+        <p class="section-kicker">Ayuda</p>
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <p class="section-lead">Respuestas breves sobre el funcionamiento actual del Asistente Universitario.</p>
+
+        <div class="faq-list">
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-1">¿Qué tipo de archivos puedo cargar?</button><div id="faq-1" class="faq-answer" hidden><p>Durante el piloto se admiten materiales académicos en PDF de hasta 10 MB, como apuntes, programas, guías y bibliografía.</p></div></article>
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-2">¿Mis documentos son públicos?</button><div id="faq-2" class="faq-answer" hidden><p>No. Los archivos no se publican ni se comparten entre estudiantes. Se almacenan en infraestructura privada administrada por el servicio y el acceso del portal se separa por cuenta.</p></div></article>
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-3">¿El análisis consume créditos?</button><div id="faq-3" class="faq-answer" hidden><p>Un análisis nuevo puede consumir un crédito. Cuando el sistema reconoce un material ya procesado, puede reutilizarlo sin descontar otro crédito.</p></div></article>
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-4">¿Puedo descargar las guías?</button><div id="faq-4" class="faq-answer" hidden><p>Sí. Las guías están disponibles en PDF y texto desde la Biblioteca del portal.</p></div></article>
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-5">¿Necesito una cuenta de Google?</button><div id="faq-5" class="faq-answer" hidden><p>Sí. El acceso se realiza con una cuenta de Google previamente habilitada para identificar y proteger el espacio personal de cada participante.</p></div></article>
+          <article class="faq-item"><button class="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-6">¿Los eventos se duplican en Calendar?</button><div id="faq-6" class="faq-answer" hidden><p>El conector identifica los planes ya agendados y actualiza sus eventos cuando corresponde, evitando generar copias adicionales.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">AU</span><span style="color:#fff">Asistente Universitario</span></a>
+        <p class="footer-description">Herramientas para organizar el estudio con claridad, privacidad y tecnología accesible.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Enlaces del pie">
+        <a data-site-link="privacy" href="./privacidad.html">Privacidad</a>
+        <a href="#ayuda">Ayuda</a>
+        <a data-site-link="feedback" href="#">Enviar comentarios</a>
+        <a data-site-link="portal" href="#">Ingresar al portal</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">© <span data-current-year>2026</span> Asistente Universitario · Sitio <span data-site-version>piloto</span>.</div>
+  </footer>
+</body>
+</html>
