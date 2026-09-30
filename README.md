@@ -9,7 +9,7 @@ Sitio estático independiente para presentar el Asistente Universitario y conduc
 - Funciona sin Canva, Tailwind, Lucide, Node ni proceso de compilación.
 - Centraliza los enlaces en `config.js`.
 - Incluye un aviso de privacidad local.
-- Usa el correo electrónico como canal provisional de comentarios.
+- Usa un Google Form como canal de comentarios del piloto.
 
 ## Archivos
 
@@ -33,7 +33,7 @@ window.SITE_CONFIG = Object.freeze({
   version: "1.0.0-piloto",
   portalUrl: "https://script.google.com/macros/s/IMPLEMENTACION/exec",
   privacyUrl: "./privacidad.html",
-  feedbackUrl: "mailto:correo@ejemplo.com?subject=Comentarios",
+  feedbackUrl: "https://docs.google.com/forms/d/e/FORMULARIO/viewform",
   contactEmail: "correo@ejemplo.com",
   pilotAccess: "Acceso limitado a participantes habilitados"
 });
@@ -46,7 +46,7 @@ La URL del portal debe:
 - no contener `?token=`;
 - apuntar al Calendar Connector, no al backend.
 
-Cuando exista un Google Form para comentarios, reemplazar solamente `feedbackUrl`.
+El enlace de comentarios debe apuntar al formulario público de respuesta y terminar en `/viewform`.
 
 ## Prueba local
 

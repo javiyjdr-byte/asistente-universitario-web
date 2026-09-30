@@ -62,6 +62,15 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn("?token=", url)
         self.assertNotIn("PORTAL_SHARED_SECRET", config)
 
+    def test_feedback_url_is_public_google_form(self):
+        config = (SITE_ROOT / "config.js").read_text(encoding="utf-8")
+        match = re.search(r'feedbackUrl:\s*"([^"]+)"', config)
+        self.assertIsNotNone(match)
+        url = match.group(1)
+        self.assertTrue(url.startswith("https://docs.google.com/forms/"))
+        self.assertTrue(url.endswith("/viewform"))
+        self.assertNotIn("/edit", url)
+
     def test_html_ids_are_unique(self):
         for filename in ["index.html", "privacidad.html"]:
             parser = parse_page(filename)
