@@ -23,3 +23,20 @@ export function displayedAngles(points){
   const geometric=points?.length===3?angleAt(...points):null;
   return geometric===null?null:{geometric,supplement:180-geometric};
 }
+
+/** Geometric explanation, not a clinical ROM classification. */
+export function describeAngle(value){
+  if(!Number.isFinite(value)||value<0||value>180)return null;
+  const angle=Math.round(value*10)/10;
+  const supplement=Math.round((180-value)*10)/10;
+  let kind,meaning;
+  if(angle===0){kind="nulo";meaning="Los dos segmentos apuntan aproximadamente en la misma dirección.";}
+  else if(angle<90){kind="agudo";meaning="La abertura entre los segmentos es menor que un ángulo recto.";}
+  else if(angle===90){kind="recto";meaning="Los segmentos forman aproximadamente una esquina de 90°.";}
+  else if(angle<180){kind="obtuso";meaning="La abertura entre los segmentos supera 90° y es menor que una línea recta.";}
+  else{kind="llano";meaning="Los segmentos están aproximadamente alineados en sentidos opuestos.";}
+  return {angle,supplement,kind,text:
+    "Se estima un ángulo "+kind+" de "+angle.toFixed(1)+"° en esta imagen. "+meaning+
+    " Para llegar a la alineación de 180°, la diferencia geométrica es "+supplement.toFixed(1)+"°. "+
+    "Esa diferencia es el suplemento; no identifica por sí sola flexión, extensión ni hiperextensión."};
+}
