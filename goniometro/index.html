@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#4b27c5"><title>Goniómetro educativo · Asistente Universitario</title>
+<link rel="stylesheet" href="./styles.css"><script type="module" src="./app.mjs"></script></head>
+<body><main><a href="../index.html">← Asistente Universitario</a><header><p class="eyebrow">LABORATORIO · VERSIÓN EXPERIMENTAL</p>
+<h1>Goniómetro educativo</h1><p>Explorá ángulos en una foto o durante un movimiento. Sin realidad aumentada.</p></header>
+<div class="notice">Medición geométrica proyectada en 2D, sin validación clínica. La perspectiva y la ubicación de los puntos cambian el resultado. No identifica reparos óseos ni diagnostica limitaciones.</div>
+<section class="panel" aria-labelledby="source-title"><h2 id="source-title">1. Elegí una imagen o cámara</h2>
+<div class="actions"><label class="button">Cargar foto<input id="photo" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<button id="camera">Abrir cámara</button><button id="freeze" disabled>Congelar imagen</button><button id="stop" disabled>Apagar cámara</button></div>
+<label for="facing">Cámara preferida</label><select id="facing"><option value="environment">Trasera</option><option value="user">Frontal</option></select>
+<p class="hint">Foto: JPG, PNG o WebP hasta 15 MB. La cámara requiere HTTPS o localhost y tu permiso. El audio no se solicita.</p>
+<p class="hint">Las imágenes se procesan en tu navegador y no se envían al servidor. Al activar la detección automática se descargan código y un modelo desde jsDelivr y Google; esos proveedores reciben la solicitud de descarga.</p></section>
+<section class="panel" aria-labelledby="measure-title"><h2 id="measure-title">2. Medí el ángulo</h2>
+<div class="controls"><div><label for="method">Método</label><select id="method"><option value="manual">Tres puntos manuales</option><option value="auto">Detección automática experimental</option></select></div>
+<div><label for="joint">Articulación automática</label><select id="joint"><option value="elbow_left">Codo izquierdo</option><option value="elbow_right">Codo derecho</option><option value="knee_left">Rodilla izquierda</option><option value="knee_right">Rodilla derecha</option></select></div></div>
+<p id="instructions">En una foto, tocá A, después el vértice B y finalmente C. Arrastrá los puntos para corregirlos. En vivo, congelá primero para medir manualmente.</p>
+<div class="stage"><video id="video" autoplay muted playsinline hidden></video><canvas id="canvas" width="960" height="540" aria-label="Imagen con puntos y ángulo medido"></canvas><p id="empty">Cargá una foto o abrí la cámara para comenzar.</p></div>
+<p id="status" role="status" aria-live="polite">Esperando una imagen.</p>
+<div class="results"><div><span>Ángulo entre segmentos</span><output id="angle">—</output></div><div><span>Suplemento: 180° − ángulo</span><output id="supplement">—</output></div></div>
+<p class="hint">El suplemento no equivale automáticamente a flexión clínica. Definí el plano y la posición de referencia con tu docente. Para automático: una persona, perfil lateral, articulación completa y buena iluminación. “Izquierdo/derecho” corresponde al cuerpo, no al lado de la pantalla.</p>
+<div class="actions"><button id="reset">Reiniciar puntos</button><button id="example">Probar ejemplo de 90°</button><button id="download" disabled>Descargar captura</button><button id="clear">Borrar imagen y apagar cámara</button></div>
+<fieldset><legend>Ajuste preciso de puntos en foto</legend><p class="hint">Alternativa al arrastre. Coordenadas en píxeles de la imagen procesada.</p><div id="coordinates"></div></fieldset>
+</section><footer>Uso educativo · No se guardan fotos ni resultados automáticamente. Las capturas descargadas pueden contener información personal.</footer></main></body></html>
