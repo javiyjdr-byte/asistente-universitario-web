@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {angleAt,posePoints,displayedAngles} from "../goniometro/geometry.mjs";
+import {angleAt,posePoints,displayedAngles,describeAngle} from "../goniometro/geometry.mjs";
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8);
 test("recto, extendido, cerrado y obtuso",()=>{
  close(angleAt({x:1,y:0},{x:0,y:0},{x:0,y:1}),90);
@@ -33,4 +33,17 @@ test("suplemento distinguido de ángulo geométrico",()=>{
 test("invariancia ante traslación y escala uniforme",()=>{
  const p=[{x:0,y:1},{x:0,y:0},{x:1,y:0}];
  close(angleAt(...p.map(q=>({x:q.x*7+10,y:q.y*7-4}))),90);
+});
+
+test("interpretación geométrica, sin diagnóstico clínico",()=>{
+ assert.equal(describeAngle(45).kind,"agudo");
+ assert.equal(describeAngle(90).kind,"recto");
+ const r=describeAngle(135);assert.equal(r.kind,"obtuso");assert.equal(r.supplement,45);
+ assert.match(r.text,/no identifica por sí sola/);
+ assert.equal(describeAngle(180).kind,"llano");assert.equal(describeAngle(0).kind,"nulo");
+});
+test("interpretación valida dominio y redondea a la precisión visible",()=>{
+ for(const n of [null,NaN,Infinity,-1,181])assert.equal(describeAngle(n),null);
+ assert.equal(describeAngle(89.999).kind,"recto");
+ assert.equal(describeAngle(179.999).kind,"llano");
 });
