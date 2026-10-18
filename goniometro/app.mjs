@@ -1,9 +1,9 @@
-import {JOINTS,posePoints,displayedAngles} from "./geometry.mjs";
+import {JOINTS,posePoints,displayedAngles,describeAngle} from "./geometry.mjs";
 const $=id=>document.getElementById(id),canvas=$("canvas"),ctx=canvas.getContext("2d"),video=$("video");
 let source=null,stream=null,points=[],drag=-1,frame=0,lastFrame=-1,lastDetection=0,detector=null,loading=null,mode="",generation=0,working=false,analyzeAgain=false;
 const status=text=>$("status").textContent=text;
 const manual=()=>$("method").value==="manual";
-function blank(){ $("angle").textContent="—";$("supplement").textContent="—";$("download").disabled=true; }
+function blank(){ $("interpretation").textContent="Completá tres puntos visibles para obtener una interpretación."; $("angle").textContent="—";$("supplement").textContent="—";$("download").disabled=true; }
 function coordinates(){
   $("coordinates").replaceChildren();
   ["A","B","C"].forEach((label,i)=>{
@@ -52,6 +52,7 @@ function draw(){
   if(!angles){blank();return;}
   $("angle").textContent=angles.geometric.toFixed(1)+"°";
   $("supplement").textContent=angles.supplement.toFixed(1)+"°";
+  $("interpretation").textContent=describeAngle(angles.geometric).text;
   $("download").disabled=false;
   const b=points[1],a=points[0],c=points[2];
   let start=Math.atan2(a.y-b.y,a.x-b.x),delta=Math.atan2(c.y-b.y,c.x-b.x)-start;
